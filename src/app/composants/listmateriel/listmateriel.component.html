@@ -1,0 +1,6 @@
+<ul *ngFor="let t of materiels">
+    <li *ngIf="t.quantite>0"> <img width="100" src="{{t.photo}} "> {{t.libelle }}
+    <span [ngClass]="{'badge badge-dark':t.hautGamme==false, 'badge badge-primary':t.hautGamme==true}">{{t.prix}}</span>
+    
+    </li>
+    </ul>
