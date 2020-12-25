@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Materiel } from '../models/materiel';
 
-@Component({
-  selector: 'sai-listmateriel',
-  templateUrl: './listmateriel.component.html',
-  styleUrls: ['./listmateriel.component.css']
+
+@Injectable({
+  providedIn: 'root'
 })
-export class ListmaterielComponent implements OnInit {
-  materiels=[
-    {
+export class MaterielService {
+  materiels :Materiel[]=[
+    {   
         id: '1',
         libelle: 'Ecran',
         photo: 'assets/Images/Informatique/ecran.png',
@@ -19,7 +19,7 @@ export class ListmaterielComponent implements OnInit {
         commentaires:[ {contenu:' satisfaisant', note:3, auteur:'Sami MRAD', date:new Date(2020,11,4)},
         {contenu:'Bon rapport qualité prix', note:4, auteur:'Amira Salah', date:new Date(2020,10,4)}]
      },
-    {
+    {   
         id: '2', 
         libelle: 'PC', 
         photo:'assets/Images/Informatique/pcFixe.jpg',
@@ -31,7 +31,7 @@ export class ListmaterielComponent implements OnInit {
         commentaires:[ {contenu:' satisfaisant', note:3, auteur:'Sami MRAD', date:new Date(2020,11,4)},
         {contenu:'Bon rapport qualité prix', note:4, auteur:'Samar Salah', date:new Date(2020,10,4)}]
     },
-    {
+    {   
         id: '3', 
         libelle: 'Scanner', 
         photo:'assets/Images/Informatique/scanner.jpg',
@@ -42,10 +42,10 @@ export class ListmaterielComponent implements OnInit {
         quantite: 0,
         commentaires:[]
     },
-    {
+    {   
         id: '4', 
         libelle: 'Imprimante', 
-        photo:'assets/Images/Informatique/imprimante.jpg',
+        photo:'../assets/Images/Informatique/imprimante.jpg',
         marque: 'Canon', 
         prix: 420, 
         description: 'Imprimante multifonctions avec kit', 
@@ -53,10 +53,10 @@ export class ListmaterielComponent implements OnInit {
         quantite: 1,
         commentaires:[]
     },
-    {
+    {   
         id: '5', 
         libelle: 'PC Portable', 
-        photo:'assets/Images/Informatique/pcPortable.png',
+        photo:'../assets/Images/Informatique/pcPortable.png',
         marque: 'Dell', 
         prix: 2250, 
         description: 'PC Portable très performant', 
@@ -66,10 +66,14 @@ export class ListmaterielComponent implements OnInit {
     }
 
 ];
-
+ 
+getMateriels()
+{ 
+  return this.materiels ;
+}
+getMaterielById(id:string)
+{
+  return <Materiel>this.materiels.find(m => m.id==id);
+}
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

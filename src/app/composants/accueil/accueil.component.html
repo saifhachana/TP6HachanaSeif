@@ -1,54 +1,15 @@
-<h1>{{nomSupermarket}}</h1>
-<ul>
-<li *ngFor ="let t of lesCategories">{{t.nom |uppercase}}<img width="250" src="{{t.image}}"></li>
-</ul>
-<div class="container">
+<h2 class="text-center pt-4">Bienvenue au supermarché " {{nomSupermarket}} "</h2>
+<div class="container pt-4">
     <div class="row">
-      <div class="col-md-4">
+        <div class="col-6 text-center"  *ngFor= "let categ of lesCategories">
+            <img [src]="categ.image" alt="photo">
+            <br>
+            <span class="badge badge-pill badge-primary">
+               {{ categ.nom |uppercase}}
+            </span>
         
-            
-            <div class="card-body">
-                <h4 class="card-title"><img width="250" src="{{lesCategories[0].image}}" class = "rounded-circle" ></h4>
-                <p class="card-text"> <span class="badge badge-pill badge-dark">{{lesCategories[0].nom}}</span></p>
-            </div>
-            
         </div>
-      
-        <div class="col-md-4">
-        
-            
-          <div class="card-body">
-              <h4 class="card-title"><img width="250" src="{{lesCategories[1].image}}" class = "rounded-circle" ></h4>
-              <p class="card-text"> <span class="badge badge-pill badge-dark">{{lesCategories[1].nom}}</span></p>
-          </div>
-          
-      </div>
-
     </div>
-    <div class="row">
-      <div class="col-md-4">
-        
-            
-            <div class="card-body">
-                <h4 class="card-title"><img width="250" src="{{lesCategories[2].image}}" class = "rounded-circle" ></h4>
-                <p class="card-text"> <span class="badge badge-pill badge-dark">{{lesCategories[3].nom}}</span></p>
-            </div>
-            
-        </div>
-      
-        <div class="cold-md-4">
-        
-            
-          <div class="card-body">
-              <h4 class="card-title"><img width="250" src="{{lesCategories[3].image}}" class = "rounded-circle" ></h4>
-              <p class="card-text"> <span class="badge badge-pill badge-dark">{{lesCategories[3].nom}}</span></p>
-          </div>
-          
-      </div>
-
-    </div>
-  </div>
-  
+</div>
 
 
-  
