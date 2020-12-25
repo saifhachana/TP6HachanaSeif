@@ -11,7 +11,9 @@ export class MaterielComponent implements OnInit {
   @Input("m") mat:Materiel;
 
   constructor(private router:Router) { }
-  Details(){}
+  Details(id:string){
+    this.router.navigate(['/Informatique',id])
+  }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Materiel } from 'src/app/models/materiel';
 import { MaterielService } from 'src/app/services/materiel.service';
 
@@ -9,14 +10,18 @@ import { MaterielService } from 'src/app/services/materiel.service';
 })
 export class DetailmaterielComponent implements OnInit {
   afficher:boolean =false;
-  @Input("m") mat:Materiel;
+ id:string;
   materiel:Materiel;
 
 
-  constructor(private materielService:MaterielService) { }
-
+  constructor(private materielService:MaterielService,private activatedRoute:ActivatedRoute,private router:Router) { }
+ident:string;
+Return(){
+  this.router.navigate(['/Informatique']);
+}
   ngOnInit(): void {
-    this.materiel=this.materielService.getMaterielById("2");
+this.ident=this.activatedRoute.snapshot.params['id'];
+    this.materiel=this.materielService.getMaterielById(this.ident);
   }
 
 }
